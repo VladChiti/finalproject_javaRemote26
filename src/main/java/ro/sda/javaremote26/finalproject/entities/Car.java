@@ -29,8 +29,8 @@ public class Car {
     private int manufacturingYear;
     private String color;
     private int mileage;
-    private Status status; //status applies to a specific date; unavailable, i.e. broken, under repair, under inspection, etc.
-    private int amount; //per day of rental (double pentru sume de bani, generally)
+    private Status status;
+    private int amount;
     @ManyToOne
     private Branch branch;
 

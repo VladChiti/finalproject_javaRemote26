@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Edit Loan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h2 class="mb-5">All Loans</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h2> List of loans</h2>
+            <table class="table table-striped table-responsive-md">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>employee</th>
+                    <th>rentalDate</th>
+                    <th>reservation</th>
+                    <th>comments</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="loan : ${loanList}">
+                    <td th:text="${loan.id}">ID</td>
+                    <td th:if="${loan.employee} !=null" th:text="${loan.employee.employeeName}">employee</td>
+                    <td th:if="${loan.employee} ==null" >N/A</td>
+                    <td th:text="${loan.rentalDate}">rentalDate</td>
+                    <td th:if="${loan.reservation} !=null" th:text="${loan.reservation.reservationId}">reservation</td>
+                    <td th:if="${loan.reservation} ==null" >N/A</td>
+                    <td th:text="${loan.comments}">comments</td>
+
+                    <td><a th:href="@{/loan/edit/{id}(id=${loan.id})}" class="btn btn-primary"><i class="fas fa-edit ml-2"></i></a></td>
+                    <td><a th:href="@{/loan/delete/{id}(id=${loan.id})}" class="btn btn-primary"><i class="fas fa-trash-alt ml-2"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

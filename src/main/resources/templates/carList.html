@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Edit Car</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h2 class="mb-5">All Cars</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h2> List of cars</h2>
+            <table class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>brand</th>
+                        <th>model</th>
+                        <th>bodyType</th>
+                        <th>year</th>
+                        <th>color</th>
+                        <th>kilometers</th>
+                        <th>status</th>
+                        <th>amountPerDay</th>
+                        <th>branch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="car : ${carList}">
+                        <td th:text="${car.id}">ID</td>
+                        <th th:text="${car.brand}">brand</th>>
+                        <th th:text="${car.model}">model</th>
+                        <th th:text="${car.bodyType}">bodyType</th>
+                        <th th:text="${car.year}">year</th>>
+                        <th th:text="${car.color}">color</th>>
+                        <th th:text="${car.kilometers}">kilometers</th>>
+                        <th th:text="${car.status}">status</th>>
+                        <th th:text="${car.amountPerDay}">amountPerDay</th>>
+                        <th th:text="${car.branch}">branch</th>>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Branch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+    <h2 class="mb-5">New Branch</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/branch/add}" th:object="${branchDto}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="branchName" class="col-form-label">Branch Name</label>
+                        <input type="text" th:field="*{branchName}" class="form-control" id="branchName" placeholder="Name">
+                        <span th:if="${#fields.hasErrors('branchName')}" th:errors="*{branchName}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="branchAddress" class="col-form-label">Branch Address</label>
+                        <input type="text" th:field="*{branchAddress}" class="form-control" id="branchAddress" placeholder="Address">
+                        <span th:if="${#fields.hasErrors('branchAddress')}" th:errors="*{branchAddress}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="rental" class="col-form-label">Rental</label>
+                        <select th:field="*{rentalId}" id="rental">
+                            <option th:each="branch : ${rental}"
+                                    th:value="${rental.id}"
+                                    th:text="${rental.name}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add branch">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
